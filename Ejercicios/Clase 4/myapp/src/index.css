@@ -1,0 +1,100 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  margin: 0;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-image: linear-gradient(to bottom right, rgb(10, 31, 251), rgb(32, 220, 254));
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  color: white;
+  margin-top: 0 ;
+  margin-bottom: 1em;
+
+}
+
+h2 {
+  font-size: 2.8em;
+  padding: 0;
+  margin: 0
+}
+
+.dosContadoresDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5em;
+}
+
+.divCandidato1 {
+  background-color: #ffffff;
+  padding: 0.5em;
+  border-radius: 1em;
+  border: solid 2px rgb(0, 0, 0);
+  color: black;
+}
+
+.divCandidato2 {
+  background-color: #ffffff;
+  padding: 0.5em;
+  border-radius: 1em;  
+  border: solid 2px rgb(0, 0, 0);
+  color: black;
+}
+
+.contador {
+  font-size: 8em;
+  box-sizing: border-box;
+  padding-top: 0.2em;
+  padding-bottom: 0.5em;
+  
+  margin: 0;
+  color: blue;
+  line-height: 0.4em;
+}
+
+.botonera {
+  display: flex;
+  justify-content:space-around
+}
+
+button {
+  border-radius: 10px;
+  border: 2px solid black;
+  padding: 0.1em 1em;
+  font-size: 3.4em;
+  margin: 0.01em;
+  font-weight: 800;
+  font-family: inherit;
+  background-color: rgb(56, 179, 255);
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+background-color: rgb(0, 0, 255);
+  
+}
+button:focus,
+button:focus-visible {
+  background-color: rgb(133, 133, 133);
+}
+
+

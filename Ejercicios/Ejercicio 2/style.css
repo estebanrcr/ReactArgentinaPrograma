@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.calculadora {
+    width: 450px;
+    border: 2px solid black;
+    text-align: center;
+    background: linear-gradient(90deg, rgba(2,0,36,0.2) 0%, rgba(9,121,121,1) 35%, rgba(0,212,255,1) 100%);
+
+}
+
+.calculadora h1 {
+    margin: 20px;
+    font-size: 3em;
+}
+
+.numerosUsuario {
+    padding: 20px;
+        text-align: center;
+
+       
+}
+
+.numerosUsuario label {
+    padding: 0 40px;
+    font-size: 1.5em;
+
+    
+    
+}
+.numerosUsuario input {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    height: 50px;
+    font-size: 1.5em;
+    
+}
+
+button {
+    width: 80px;
+    font-size: 1.3em;
+    margin: 20px auto;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+button:hover {
+
+    background-color: rgba(255, 255, 255, 0.336);
+    cursor: pointer;
+    border: 3px solid rgb(0, 204, 255);
+}
+
+#resultado {
+    width: 200px;
+    text-align: right;
+    font-size: 2em;
+    margin: 20px auto;
+    
+}
+
+#resultado input {
+    font-size: 20px;
+    text-align: center;
+    height: 40px;
+}

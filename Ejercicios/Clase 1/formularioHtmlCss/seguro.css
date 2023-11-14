@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background-image: radial-gradient(circle at 50% -20.71%, #e6f58f 0, #e9eb7f 10%, #ecdf6e 20%, #efd25d 30%, #f1c44d 40%, #f2b53c 50%, #f3a52d 60%, #f59522 70%, #f8851d 80%, #fa741e 90%, #fc6324 100%);
+}
+
+#titulo {
+color: rgba(12, 12, 12, 0.582);
+width: 80%;
+max-width: 400px;
+font-size: 24px;
+text-align: center;
+margin: 50px auto;
+padding: 10px;
+}
+
+.empresa {
+    color: rgb(0, 0, 0);
+    margin-bottom: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+
+.seguro{
+    color: #020202af;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+
+.container {
+    width: 80%;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 15px 10px rgba(0, 0, 0, 0.6);
+}
+
+.container h2 {
+    text-align: center;
+    color:#333;
+    
+    margin-bottom: 20px;
+} 
+
+form input {
+    display: block;
+    font-size: 14px;
+    width: 100%;
+    padding: 17px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(177, 177, 177, 0.24);
+    color: #333;
+    
+}
+
+form input:focus {
+    outline:none;
+    box-shadow: 0 0 5px #faa70d;
+    font-weight: 700;
+}
+
+form p {
+    font-size: 17px;
+    text-align: center;
+    padding: 14px;
+    margin-bottom: 10px;
+    font-weight: bolder;
+}
+
+form button{
+    display: block;
+    width: 100%;
+    padding: 20px ;
+    border:none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s ease;  
+}
+
+form button:hover {
+    background-color: #555;
+}
+
+#tipo {
+    width: 100%;
+    padding: 13px;
+    margin-bottom: 20px;
+    border: none;
+    box-shadow: 0 0 5px #333;
+}
+
+#tipo:focus {
+    box-shadow: 0 0 5px #faa70d;
+
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+  }
+  
