@@ -5,6 +5,17 @@ export default function Candidato2() {
 
     const [count2, setCount] = useState(0)
 
+        //función aumento
+        const aumento = () => {
+            setCount(count2 +1);
+        }
+        //función decremento para impedir que vaya debajo de 0 el contador
+    
+        const decremento = () => {
+            setCount(cuentaAnterior => Math.max(cuentaAnterior -1, 0));
+        }
+    
+
     return (
     <div className="divCandidato2">
         <h2>Candidato 2</h2>
@@ -12,8 +23,8 @@ export default function Candidato2() {
         
 
         <div className="botonera">
-            <button onClick={() => setCount((count2) => count2 + 1)}>+</button>
-            <button onClick={() => setCount((count2) => count2 - 1)}>-</button>
+            <button onClick={aumento}>+</button>
+            <button onClick={decremento}>-</button>
         </div>
 
         </div>

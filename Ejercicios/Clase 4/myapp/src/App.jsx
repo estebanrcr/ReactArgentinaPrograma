@@ -7,12 +7,10 @@ function App() {
   return (
     <>
       <div className='dosContadoresDiv'>
-      <h1>Boca de urnas</h1>
-      <Candidato1 />
-      <Candidato2 />
-
-      </div>
-      
+        <h1>Boca de urnas</h1>
+        <Candidato1 />
+        <Candidato2 />
+      </div>      
     </>
   )
 }
