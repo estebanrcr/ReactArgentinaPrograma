@@ -1,0 +1,145 @@
+body {
+  background-color: #17181f;
+  color: #aaa;
+  font-family: Verdana,  Tahoma, sans-serif;
+  font-size: .9em;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+.main-tareas {
+  max-width: 460px;
+  margin: 4em auto;
+}
+
+h1 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: 300;
+  font-size: 3.4em;
+  color: white;
+  text-align: center;
+  margin-bottom: 1.2em;
+}
+
+form {
+  border: 0.2em solid #30313d;
+  border-radius: 1em;
+  padding-left: 5px;
+  display: flex;
+  margin-bottom: 2em;
+}
+
+form input[type="text"] {
+  background: none;
+  border: 0;
+  text-align: center;
+  padding: 0.7em 0.6em;
+  display: block;
+  width: 100%;
+
+}
+
+form button {
+  background-color: #61dafb;
+  border-radius: 0.4em;
+  border: 0;
+  margin: .2em;
+  padding: 0.2em 0.6em;
+  font-size: 1.7em;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: rgb(0, 255, 119);
+}
+
+form input {
+  color: white;
+  font-size: 1.2em;
+}
+
+form input:focus {
+  transition: ease-in-out, width .35s ease-in-out;
+  border-radius: 1em;
+}
+
+form ::placeholder {
+  font-style: italic;
+  font-size: 1em;
+ 
+}
+
+#checkbox {
+  cursor: pointer;
+}
+
+
+
+.task-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #30313d ;
+  border-radius: 0.6em;
+  padding: .9em;
+  margin-top: .5em;
+}
+
+.task-item span {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.boton-borrar {
+  background-color: #61dafb;
+  border-radius: 0.4em;
+  color: black;
+  font-size: .9em;
+  padding: .2em;
+  padding-left: .3em;
+  padding-right: .3em;
+  cursor: pointer;  
+  font-weight: 600;
+} 
+
+.boton-borrar:hover {
+  background-color: red;
+  color: white;
+  transition: ease-in-out;
+
+}
+
+.botonera {
+  margin-top: 0.6em;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+}
+
+.botonera button {
+  background-color: #61dafb;
+  border-radius: 0.4em;
+  border: 0;
+  margin: .2em;
+  padding: 0.7em 0.9em;
+  font-weight: 500;
+  font-size: 1.1em;
+  cursor: pointer;
+}
+
+#limpiar-completadas {
+  background-color: aquamarine;
+}
+#limpiar-completadas:hover {
+  background-color: rgb(0, 255, 119);
+}
+#borrar-tareas {
+background-color: rgba(216, 119, 119, 0.335);
+color:#aaa;
+}
+#borrar-tareas:hover {
+  background-color: rgba(255, 0, 0, 0.335);
+  }
