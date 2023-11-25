@@ -12,9 +12,9 @@ function App() {
   
   const [proximoId, setProximoId] = useState(5)
   const [tareas, setTareas] = useState(tareasIniciales)
-  
+  const [tienesTareas, setTienesTareas] = useState(true);
 
-    //AGREGAR TAREA ------> OK
+  //----funciones
   function agregar(tarea){
     const nuevo = {id: proximoId +1 , tarea: tarea, completed: false}
     const copia = [...tareas, nuevo]
@@ -22,7 +22,6 @@ function App() {
     setProximoId(proximoId +1)
   }
 
-  //BORRAR TAREA ------> OK
   function borrar(id) {
     const copia = tareas.filter(tarea => tarea.id !== id)
     setTareas(copia)
@@ -34,7 +33,6 @@ function App() {
     const copia = tareas.map(tarea => tarea.id === id ? nueva: tarea)
     setTareas(copia)
   }
-
 
   function estaCompletada(id) {
     const actualizadasTareas = tareas.map(tarea => tarea.id === id ? { ... tarea, completed: ! tarea.completed} : tarea
@@ -51,38 +49,36 @@ function App() {
     setTareas(listaLimpiada)
   }
 
-
-
-  //USE EFFECT --- EJECUTA UN CODIGO CADA VEZ QUE SE MODIFICA LA PANTALLA
-
-  //por ejemplo para guardar en almacenamiento local 
-  //y para mandar por consola un mensaje
+  useEffect(() => {
+    localStorage.setItem('tareas', JSON.stringify(tareas));
+  }, [tareas]);
 
   useEffect(() => {
-    localStorage.setItem('tareas', JSON.stringify(tareas))
-  })
+    setTienesTareas(tareas.length > 0);
+  }, [tareas]);
 
+  useEffect(() => {
+    setTienesTareas(tareas.length > 0); 
+  }, []); 
 
   return (
     <>
       <main className='main-tareas'>
-        <h1>Lista de TAREAS </h1>
+        <h1>{tienesTareas ? 'Lista de Tareas' : 'No hay más tareas!!!!'}</h1>
         <div className="container">
-        <TaskForm alAgregar={agregar}/>
-        <TaskList tareas={tareas} alBorrar={borrar} alModificar={modificar}cambiarCompletada={estaCompletada} />
-        <div className='botonera'>
-          <button id="limpiar-completadas" onClick={limpiarCompletadas}>Limpiar completadas</button>
-          <button id="borrar-tareas" onClick={borrarTodas}>Borrar Tareas</button>
-
+          <TaskForm alAgregar={agregar}/>
+          <TaskList tareas={tareas} alBorrar={borrar} alModificar={modificar}cambiarCompletada={estaCompletada} />
+          <div className='botonera'>
+           <button id="limpiar-completadas" onClick={limpiarCompletadas}>Limpiar completadas</button>
+            <button id="borrar-tareas" onClick={borrarTodas}>Borrar Tareas</button>
+          </div>
         </div>
-        
-        </div>
-
       </main>
     </>
   );
 }
 
+//TASKLIST
 const TaskList = ({ tareas, cambiarCompletada, alBorrar }) => {
   return ( 
     <div>
@@ -98,27 +94,15 @@ const TaskList = ({ tareas, cambiarCompletada, alBorrar }) => {
   )   
 }
 
-//-------- FUNCION TASKITEM = FORMULARIO
-
+//TASKITEM
 function TaskItem({tarea, alBorrar, cambiarCompletada}) {
-  //habria q desesctructura
-
   function borrar() {
     alBorrar(tarea.id)
-  }
-
-  function modificar() {
-    alModificar(tarea.id,)
   }
 
   function estaCompletada() {
     cambiarCompletada(tarea.id)
   }
-
-
-//ESTO PARA EL TACHADO
-  // const tachado = {tachado = true ? completada : normal}
-
 
   return (
     <div className='task-item' >
@@ -134,28 +118,20 @@ function TaskItem({tarea, alBorrar, cambiarCompletada}) {
   )
 }
 
-
-///////////////////////-------- --------------------------------//////
-
-//-------- FUNCION TASKFORM = FORMULARIO--------------------------------
+//TASKFORM
 function TaskForm({ alAgregar }) {
   const [tarea, setTarea] = useState('');
   function agregaNomas(e) {
     e.preventDefault();
-    
-    //para evitar que agregue una tarea vacia
-    //llamar a la funcion alAgregar
-    // Limpiar el campo luego de agregar la tarea
-    if (tarea === '') return;
+   if (tarea === '') return;
     alAgregar(tarea);
     setTarea('');
   }
 
-
   return (
     <form onSubmit={agregaNomas}>
-      <input placeholder="¿Cuál es tu próxima misión?"autoFocus type="text" value={tarea} onChange={(e) => setTarea(e.target.value)} />
-      <button type='submit'>+</button>
+      <input id="proxima-tarea"placeholder="¿Cuál es tu próxima misión?"autoFocus type="text" value={tarea} onChange={(e) => setTarea(e.target.value)} />
+      <button id="agregar-tarea"type='submit'>+</button>
     </form>
   );
 }

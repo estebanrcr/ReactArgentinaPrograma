@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Formulario</title>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        * {
+        box-sizing: border-box;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .crear{
+        display: flex;
+        flex-direction: column;
+        gap: .4em;
+        max-width: 300px;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 2em;
+        }
+
+        .crear input {
+        padding: .8em 0.5em;
+        font-size: 0.6em;
+        }
+
+        .crear input:focus {
+        outline: none;
+        border: 2px solid chocolate;
+        box-shadow: 1px 0 10px black;
+        }
+
+        label {
+        font-size: 0.6em;
+        text-align: left;
+        }
+        h2{
+        font-size: 3em;
+        color:chocolate;
+        text-align: center;
+        }
+
+        .mostrar-contraseña {
+        text-align: left;
+        }
+
+        input::placeholder {
+        text-align: center;
+        }
+
+        .boton-registrar {
+        background-color: chocolate;
+        font-size: 0.7em;
+        padding: .7em 0.5em;
+        }
+        .boton-registrar:focus {
+        /* background-color: chocolate; */
+        outline: none;
+        border: 2px solid rgb(26, 14, 2);
+        box-shadow: 2px 0 10px rgb(96, 96, 96);
+        }
+    </style>
+    <script type="text/babel">
+        const { useState } =  React
+
+        
+        function App() {
+
+            const [datosFormulario, setdatosFormulario] = useState({
+            nombre: '',
+            apellido: '',
+            email: '',
+            telefono: '',
+            password: '',
+            confirmPassword: ''
+            });
+
+            const [mostrarContraseña, setMostrarContraseña] = useState(false);
+
+            const manejoEntrada = (e) => {
+            const { name, value } = e.target;
+            setdatosFormulario({
+                ...datosFormulario,
+                [name]: value
+            });
+            };
+
+            const cambioVisibilidad = () => {
+            setMostrarContraseña(!mostrarContraseña);
+            }
+
+            return (
+            <div>
+                <h2>Registrate</h2>
+                <form>
+                <div className='crear'>
+                    <input
+                    placeholder='Ingresa tu nombre'
+                    type="text"
+                    id="nombre"
+                    name="nombre"
+                    value={datosFormulario.nombre}
+                    onChange={manejoEntrada}
+                    required
+                    />
+                    <input
+                    placeholder='Ingresa tu apellido'
+                    type="text"
+                    id="apellido"
+                    name="apellido"
+                    value={datosFormulario.apellido}
+                    onChange={manejoEntrada}
+                    required
+                    />
+                    <input
+                    placeholder='Ingresa tu correo'
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={datosFormulario.email}
+                    onChange={manejoEntrada}
+                    required
+                    />
+                    <input
+                    placeholder='Ingresa tu teléfono'
+                    type="tel"
+                    id="telefono"
+                    name="telefono"
+                    value={datosFormulario.telefono}
+                    onChange={manejoEntrada}
+                    required
+                    />
+                    <input
+                    placeholder='elige una contraseña'
+                    type={mostrarContraseña ? 'text' : 'password'}
+                    id="password"
+                    name="password"
+                    value={datosFormulario.password}
+                    onChange={manejoEntrada}
+                    required
+                    />
+                    <input
+                    placeholder='confirma tu contraseña'
+                    type={mostrarContraseña ? 'text' : 'password'}
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    value={datosFormulario.confirmPassword}
+                    onChange={manejoEntrada}
+                    required
+                    />
+                    <div className='mostrar-contraseña'>
+                    <label htmlFor="">
+                        <input
+                        type="checkbox"
+                        onChange={cambioVisibilidad} />
+                        Mostrar contraseña
+                    </label>
+                    </div>
+                    
+                <button className='boton-registrar'type="submit">Registrarse</button>
+                </div>
+                    
+                </form>
+            </div>
+            );
+            }
+
+            ReactDOM.render(<App />, document.getElementById('root'));
+
+        
+    </script>
+
+</head>
+<body>
+    <div id="root"></div>
+
+    
+</body>
+</html>

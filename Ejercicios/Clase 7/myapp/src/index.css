@@ -1,0 +1,70 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  box-sizing: border-box;
+
+  color-scheme: light dark;
+  background: rgb(238,174,202);
+  background: radial-gradient(circle, rgb(235, 235, 235) 0%, rgba(148,187,233,1) 100%);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+    box-shadow: 10px 10px 5px 10px rgba(255, 255, 255, 0.527);
+
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 2.5em;
+  line-height: 1.1;
+  color: rgb(35, 50, 255);
+}
+
+.ecommerce {
+  max-width: 780px;
+  text-align: center;
+  margin: 0 ;
+  padding: 1em;
+}
+
+.ecommerce:hover{
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+
+
+}
+
+
+.detalle-producto {
+  padding: 2em;
+  color: #213547;
+}
+
+.productoSeleccionado {
+  color: rgb(0, 0, 0);
+  text-transform: uppercase;
+  font-size: 2.3em;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
