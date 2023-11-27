@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ecommmerce Compra</title>
+    
+        <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+        <style>
+            #root {
+            max-width: 720px;
+            background-color: azure;
+            border-radius: 10px;
+            margin: 10px auto;
+            padding: 0em;
+            text-align: center;
+            box-shadow: 10px 10px 25px 2px rgba(32, 32, 32, 0.527);
+            }
+            :root {
+            font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+            line-height: 1.5;
+            font-weight: 400;
+            box-sizing: border-box;
+
+            color-scheme: light dark;
+            background: rgb(238,174,202);
+            background: radial-gradient(circle, rgb(235, 235, 235) 0%, rgba(148,187,233,1) 100%);
+            font-synthesis: none;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-text-size-adjust: 100%;
+                box-shadow: 10px 10px 5px 10px rgba(255, 255, 255, 0.527);
+
+            }
+
+            body {
+            margin: 0;
+            display: flex;
+            place-items: center;
+            min-width: 320px;
+            min-height: 100vh;
+            }
+
+            h1 {
+            font-size: 2.5em;
+            line-height: 1.1;
+            color: rgb(35, 50, 255);
+            }
+
+            .ecommerce {
+            max-width: 380px;
+            text-align: center;
+            margin: 0 ;
+            padding: 1em 1em; 
+            }
+
+            .detalle-producto {
+            padding: 0.5em;
+            color: #213547;
+            }
+
+            .productoSeleccionado {
+            color: rgb(0, 0, 0);
+            text-transform: uppercase;
+            font-size: 2.3em;
+            margin: 0;
+            padding: 0;
+            }
+
+            button {
+            background-color:  rgb(35, 50, 255);
+            border-radius: 4%;
+            padding: .5em 1em;
+            font-size: 2em;
+            cursor: pointer;
+            }
+
+            button:hover{
+            background-color: green;
+            }
+
+            .gracias {
+            color:#efefef;
+            font-size: 2em;
+            font-weight: 900;
+            background-color: rgb(0, 0, 255, 0.9);
+            text-align: center;
+            padding: 0.1em .4em;
+            display: inline-block;
+            margin-top: 1em;
+            margin-bottom: 0;
+            border-radius: 7px;
+            
+            }
+
+            @media (prefers-color-scheme: light) {
+            :root {
+                color: #213547;
+                background-color: #ffffff;
+            }
+            a:hover {
+                color: #747bff;
+            }
+            button {
+                background-color: #f9f9f9;
+            }
+            }
+
+        </style>
+
+        <script type="text/babel">
+            const {useState} = React
+            
+            function App() {
+                const [count, setCount] = useState(0)
+
+                return (
+                    <>
+                    
+                    <div className="ecommerce">
+                        <h1>Producto seleccionado</h1>
+                        <DetalleProducto
+                        nombre = "Samsung UHD 4k Tizen Led 50"
+                        descripcion= "Smart Tv Samsung Uhd 4k Tizen Led 50,El Smart TV Samsung 50 pulgadas  4K UHD "        
+                        precio = {10000000}
+                        sku= "ABC2929"
+                        cantidadDisponible={25}
+                        />
+                        <Boton />
+                    </div>
+                    </>
+                )
+                }
+
+                function Boton() {
+                const [mostrarMensaje, setMostrarMensaje] = useState(false);
+                const [mostrarComprar, setMostrarComprar] = useState(true)
+
+                const manejoClick = () => {
+                    setMostrarMensaje(true);
+                    setMostrarComprar(false);
+                }
+
+                return (
+                    <div>
+                    
+                    {mostrarComprar && <button onClick={manejoClick}>Comprar</button>}
+                    
+                    {mostrarMensaje && <p className='gracias'>Gracias por su compra!</p>}
+                    </div>
+                );}
+
+                const DetalleProducto = ({ nombre, descripcion, precio, sku, cantidadDisponible }) => {
+                return (
+                    <div className="detalle-producto">
+                        <h2 className="productoSeleccionado">{nombre}</h2>
+                        <p>Descripcion: <strong>{descripcion}</strong></p>
+                        <p>Precio: <strong>${precio}</strong></p>
+                        <p>SKU: <strong>{sku}</strong></p>
+                        <p>Cantidad disponible: <strong>{cantidadDisponible}</strong></p>
+                    </div>
+                );
+            };
+ReactDOM.render(<App />, document.getElementById('root'));
+        </script>
+    </head>
+
+    <body>
+        <div id="root"></div>
+    </body>
+</html>

@@ -35,9 +35,10 @@ function App() {
   }
 
   function estaCompletada(id) {
-    const actualizadasTareas = tareas.map(tarea => tarea.id === id ? { ... tarea, completed: ! tarea.completed} : tarea
+    const actualizadasTareas = tareas.map(
+      tarea => tarea.id === id ? { ... tarea, completed: ! tarea.completed} : tarea
       )
-      setTareas(actualizadasTareas)
+    setTareas(actualizadasTareas)
   }
 
   function borrarTodas() {
@@ -64,7 +65,7 @@ function App() {
   return (
     <>
       <main className='main-tareas'>
-        <h1>{tienesTareas ? 'Lista de Tareas' : 'No hay más tareas!!!!'}</h1>
+        <h1>{tienesTareas ? 'Lista de Tareas' : 'No hay más tareas !'}</h1>
         <div className="container">
           <TaskForm alAgregar={agregar}/>
           <TaskList tareas={tareas} alBorrar={borrar} alModificar={modificar}cambiarCompletada={estaCompletada} />

@@ -17,9 +17,28 @@ function App() {
         sku= "ABC2929"
         cantidadDisponible={25}
         />
+        <Boton />
       </div>
     </>
   )
 }
+
+function Boton() {
+  const [mostrarMensaje, setMostrarMensaje] = useState(false);
+  const [mostrarComprar, setMostrarComprar] = useState(true)
+
+  const manejoClick = () => {
+    setMostrarMensaje(true);
+    setMostrarComprar(false);
+  }
+
+  return (
+    <div>
+      
+      {mostrarComprar && <button onClick={manejoClick}>Comprar</button>}
+      
+      {mostrarMensaje && <p className='gracias'>Gracias por su compra!</p>}
+    </div>
+  );}
 
 export default App
